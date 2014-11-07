@@ -4,7 +4,12 @@ using System.Collections;
 public class GameInformation : MonoBehaviour {
 
 	void Awake() {
-		DontDestroyOnLoad (transform.gameObject);
+		DontDestroyOnLoad (gameObject);
+	}
+
+	public static BaseEquipment EquipmentOne {
+		get;
+		set;
 	}
 
 	public static string PlayerName {
@@ -27,17 +32,17 @@ public class GameInformation : MonoBehaviour {
 		set;
 	}
 
-	public static string Endurance {
+	public static int Endurance {
 		get;
 		set;
 	}
 
-	public static string Intellect {
+	public static int Intellect {
 		get;
 		set;
 	}
 
-	public static string Strength {
+	public static int Strength {
 		get;
 		set;
 	}
