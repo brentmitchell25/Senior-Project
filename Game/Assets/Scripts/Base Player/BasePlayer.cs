@@ -6,10 +6,18 @@ public class BasePlayer {
 	private string playerName;
 	private int playerLevel;
 	private BaseCharacterClass playerClass;
-	private int staminia;
-	private int endurance;
-	private int intellect;
-	private int strength;
+
+	private int stamina;		// health modifier
+	private int endurance;		// energy modifier
+	private int intellect;		// magical damage modifier
+	private int strength;		// physical damamge modifier
+	private int agility;		// haste and crit modifier
+	private int resistance;		// all damager reduction
+
+	private int currentXP;
+	private int requiredXP;
+
+	private int gold;			// currency
 
 	public string PlayerName {
 		get {
@@ -38,12 +46,12 @@ public class BasePlayer {
 		}
 	}
 
-	public int Staminia {
+	public int Stamina {
 		get {
-			return staminia;
+			return stamina;
 		}
 		set {
-			staminia = value;
+			stamina = value;
 		}
 	}
 
@@ -71,6 +79,51 @@ public class BasePlayer {
 		}
 		set {
 			strength = value;
+		}
+	}
+
+	public int Agility {
+		get {
+			return agility;
+		}
+		set {
+			agility = value;
+		}
+	}
+
+	public int Resistance {
+		get {
+			return resistance;
+		}
+		set {
+			resistance = value;
+		}
+	}
+
+	public int CurrentXP {
+		get {
+			return currentXP;
+		}
+		set {
+			currentXP = value;
+		}
+	}
+
+	public int RequiredXP {
+		get {
+			return requiredXP;
+		}
+		set {
+			requiredXP = value;
+		}
+	}
+
+	public int Gold {
+		get {
+			return gold;
+		}
+		set {
+			gold = value;
 		}
 	}
 }

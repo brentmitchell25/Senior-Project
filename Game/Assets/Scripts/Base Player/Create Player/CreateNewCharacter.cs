@@ -28,20 +28,15 @@ public class CreateNewCharacter : MonoBehaviour {
 				newPlayer.PlayerClass = new BaseWarriorClass();
 			}
 			newPlayer.PlayerLevel = 1;
-			newPlayer.Staminia = newPlayer.PlayerClass.Stamina;
+			newPlayer.Stamina = newPlayer.PlayerClass.Stamina;
 			newPlayer.Endurance = newPlayer.PlayerClass.Endurance;
 			newPlayer.Intellect = newPlayer.PlayerClass.Intellect;
 			newPlayer.Strength = newPlayer.PlayerClass.Strength;
 			newPlayer.PlayerName = playerName;
 			storeNewPlayerInfo();
+			createNewPlayer();
 			SaveInformation.SaveAllInformation ();
-			Debug.Log ("Player Name: " + newPlayer.PlayerName);
-			Debug.Log ("Player Class: " + newPlayer.PlayerClass.CharacterClassName);
-			Debug.Log ("Player Level: " + newPlayer.PlayerLevel);
-			Debug.Log ("Player Staminia: " + newPlayer.PlayerClass.Stamina);
-			Debug.Log ("Player Endurance: " + newPlayer.PlayerClass.Endurance);
-			Debug.Log ("Player Intellect: " + newPlayer.PlayerClass.Intellect);
-			Debug.Log ("Player Strength: " + newPlayer.PlayerClass.Strength);
+
 		}
 
 		if (GUILayout.Button ("Load")) {
@@ -53,9 +48,35 @@ public class CreateNewCharacter : MonoBehaviour {
 	private void storeNewPlayerInfo() {
 		GameInformation.PlayerName = newPlayer.PlayerName;
 		GameInformation.PlayerLevel = newPlayer.PlayerLevel;
-		GameInformation.Staminia = newPlayer.Staminia;
+		GameInformation.Staminia = newPlayer.Stamina;
 		GameInformation.Endurance = newPlayer.Endurance;
 		GameInformation.Intellect = newPlayer.Intellect;
 		GameInformation.Strength = newPlayer.Strength;
+		GameInformation.Agility = newPlayer.Agility;
+		GameInformation.Resistance = newPlayer.Resistance;
+		GameInformation.Gold = newPlayer.Gold;
+	}
+
+	private void createNewPlayer() {
+		newPlayer.PlayerLevel = 1;
+		newPlayer.Stamina = newPlayer.PlayerClass.Stamina;
+		newPlayer.Endurance = newPlayer.PlayerClass.Endurance;
+		newPlayer.Intellect = newPlayer.PlayerClass.Intellect;
+		newPlayer.Strength = newPlayer.PlayerClass.Strength;
+		newPlayer.Agility = newPlayer.PlayerClass.Agility;
+		newPlayer.Resistance = newPlayer.PlayerClass.Resistance;
+		newPlayer.Gold = 100;
+		newPlayer.PlayerName = playerName;
+
+		Debug.Log ("Player Name: " + newPlayer.PlayerName);
+		Debug.Log ("Player Class: " + newPlayer.PlayerClass.CharacterClassName);
+		Debug.Log ("Player Level: " + newPlayer.PlayerLevel);
+		Debug.Log ("Player Staminia: " + newPlayer.Stamina);
+		Debug.Log ("Player Endurance: " + newPlayer.Endurance);
+		Debug.Log ("Player Intellect: " + newPlayer.Intellect);
+		Debug.Log ("Player Strength: " + newPlayer.Strength);
+		Debug.Log ("Player Agililty: " + newPlayer.Agility);
+		Debug.Log ("Player Resistance: " + newPlayer.Resistance);
+		Debug.Log ("Player Gold: " + newPlayer.Gold);
 	}
 }

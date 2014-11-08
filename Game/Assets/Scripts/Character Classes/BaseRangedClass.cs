@@ -10,6 +10,8 @@ public class BaseRangedClass : BaseCharacterClass {
 		Endurance = 20;
 		Strength = 5;
 		Intellect = 2;
+		Agility = 20;
+		Resistance = 5;
 	}
 
 }

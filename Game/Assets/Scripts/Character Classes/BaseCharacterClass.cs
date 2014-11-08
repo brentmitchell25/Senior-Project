@@ -11,16 +11,17 @@ public class BaseCharacterClass {
 	private int endurance;
 	private int strength;
 	private int intellect;
-
+	private int agility;
+	private int resistance;
 
 	public string CharacterClassName {
-				get {
-						return characterClassName;
-				}
-				set {
-						characterClassName = value;
-				}
+		get {
+			return characterClassName;
 		}
+		set {
+			characterClassName = value;
+		}
+	}
 
 	public string CharacterClassDescription {
 		get {
@@ -64,6 +65,24 @@ public class BaseCharacterClass {
 		}
 		set {
 			intellect = value;
+		}
+	}
+
+	public int Agility {
+		get {
+			return agility;
+		}
+		set {
+			agility = value;
+		}
+	}
+
+	public int Resistance {
+		get {
+			return resistance;
+		}
+		set {
+			resistance = value;
 		}
 	}
 }
