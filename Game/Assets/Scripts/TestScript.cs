@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class TestScript : MonoBehaviour {
@@ -9,7 +9,7 @@ public class TestScript : MonoBehaviour {
 		Debug.Log ("Player Name: " + GameInformation.PlayerName);
 		//Debug.Log ("Player Class: " + GameInformation.PlayerClass);
 		Debug.Log ("Player Level: " + GameInformation.PlayerLevel);
-		Debug.Log ("Player Staminia: " + GameInformation.Staminia);
+		Debug.Log ("Player Staminia: " + GameInformation.Stamina);
 		Debug.Log ("Player Endurance: " + GameInformation.Endurance);
 		Debug.Log ("Player Intellect: " + GameInformation.Intellect);
 		Debug.Log ("Player Strength: " + GameInformation.Strength);

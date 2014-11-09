@@ -10,7 +10,7 @@ public class CreatePlayerGUI : MonoBehaviour {
 	}
 	
 	private DisplayCreatePlayerFunctions displayFunctions = new DisplayCreatePlayerFunctions ();
-	private CreatePlayerStates currentState;
+	public static CreatePlayerStates currentState;
 	
 	// Use this for initialization
 	void Start () {
@@ -41,6 +41,7 @@ public class CreatePlayerGUI : MonoBehaviour {
 		}
 		if (CreatePlayerStates.FINALSETUP == currentState) {
 			// Display class selction function
+			Debug.Log (GameInformation.Stamina);
 			displayFunctions.displayFinalSetup ();
 		}
 	}

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CreateNewCharacter : MonoBehaviour {
@@ -48,7 +48,7 @@ public class CreateNewCharacter : MonoBehaviour {
 	private void storeNewPlayerInfo() {
 		GameInformation.PlayerName = newPlayer.PlayerName;
 		GameInformation.PlayerLevel = newPlayer.PlayerLevel;
-		GameInformation.Staminia = newPlayer.Stamina;
+		GameInformation.Stamina = newPlayer.Stamina;
 		GameInformation.Endurance = newPlayer.Endurance;
 		GameInformation.Intellect = newPlayer.Intellect;
 		GameInformation.Strength = newPlayer.Strength;

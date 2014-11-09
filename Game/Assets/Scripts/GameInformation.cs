@@ -7,6 +7,11 @@ public class GameInformation : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 	}
 
+	public static bool IsMale {
+		get;
+		set;
+	}
+
 	public static BaseEquipment EquipmentOne {
 		get;
 		set;
@@ -27,7 +32,7 @@ public class GameInformation : MonoBehaviour {
 		set;
 	}
 
-	public static int Staminia {
+	public static int Stamina {
 		get;
 		set;
 	}

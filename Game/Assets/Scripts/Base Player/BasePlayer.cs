@@ -16,6 +16,7 @@ public class BasePlayer {
 
 	private int currentXP;
 	private int requiredXP;
+	private int statPointsToAllocate;
 
 	private int gold;			// currency
 
@@ -124,6 +125,15 @@ public class BasePlayer {
 		}
 		set {
 			gold = value;
+		}
+	}
+
+	public int StatPointsToAllocate {
+		get {
+			return statPointsToAllocate;
+		}
+		set {
+			statPointsToAllocate = value;
 		}
 	}
 }
