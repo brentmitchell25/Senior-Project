@@ -68,15 +68,16 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public bool HmdRotatesY = true;
 
+	[SerializeField]
+	public float MoveScale = 5.0f;
+	private Vector3 MoveThrottle = Vector3.zero;
+	private float FallSpeed = 0.0f;	
+
 	/// <summary>
 	/// Modifies the strength of gravity.
 	/// </summary>
 	public float GravityModifier = 0.379f;
 
-	private float MoveScale = 1.0f;
-	private Vector3 MoveThrottle = Vector3.zero;
-	private float FallSpeed = 0.0f;	
-	
 	/// <summary>
 	/// If true, each OVRPlayerController will use the player's physical height.
 	/// </summary>
