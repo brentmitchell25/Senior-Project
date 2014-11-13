@@ -1,0 +1,32 @@
+Initialize engine version: 4.6.0f1 (8b19a19f0c27)
+Forcing GfxDevice: 2
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 550M (ID=0xdf6)
+    Vendor:   NVIDIA
+    VRAM:     1998 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.066 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1366x768 60Hz; virtual: 4310x1080 at 0,-137
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\System.Core.dll (this message is harmless)
+WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Bark Rendertex' - Pass '' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Rendertex' - Pass '' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Optimized' - Pass '' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Tyler Yoder\Documents\Senior-Project\Game\11.13.14.Build1_Data\Managed\Boo.Lang.dll (this message is harmless)
