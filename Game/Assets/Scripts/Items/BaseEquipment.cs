@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class BaseEquipment : BaseStatItem {
+public class BaseEquipment : BaseItem {
 
 	public enum EquipmentTypes {
 		HEAD,

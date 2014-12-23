@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasePotion : BaseStatItem {
+public class BasePotion : BaseItem {
 
 	public enum PotionTypes {
 		HEALTH,
