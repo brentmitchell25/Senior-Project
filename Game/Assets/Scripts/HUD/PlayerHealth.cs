@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
     public int maxHealth = 100;
-    public int curHealth;
+    public int curHealth = 100;
     //public Image damageImage;
     public Slider healthSlider;
     public float flashSpeed = 5f;
@@ -21,7 +21,6 @@ public class PlayerHealth : MonoBehaviour {
         //anim = GetComponent<Animator>();
         //playerAudio = GetComponent<AudioSource>();
         CharacterMotor = GetComponent<CharacterMotor>();
-        curHealth = maxHealth;
 	}
 	
 	// Update is called once per frame
@@ -35,13 +34,14 @@ public class PlayerHealth : MonoBehaviour {
             //damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
+        healthSlider.value = curHealth;
 	}
 
     public void TakeDamage(int amount)
     {
         damaged = true;
         curHealth -= amount;
-        healthSlider.value = (curHealth / maxHealth) * healthSlider.maxValue;
+        healthSlider.value = curHealth;
         //playerAudio.Play();
         if (curHealth <= 0 && !isDead)
         {
@@ -60,8 +60,14 @@ public class PlayerHealth : MonoBehaviour {
 
     }
 
+    void onPointerDown()
+    {
+        curHealth -= 10;
+        healthSlider.value = curHealth;
+    }
+
     void onGUI()
     {
-        
+
     }
 }
