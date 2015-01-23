@@ -1,0 +1,87 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class GUIControls : MonoBehaviour
+{
+    CharacterMotor CharacterMotor;
+    bool isDead;
+    bool damaged;
+    public int maxHealth = 100;
+    public int curHealth = 100;
+    public int maxMana = 100;
+    public int curMana = 100; 
+    public int maxStam = 100;
+    public int curStam = 100;
+    public int maxExp = 100;
+    public int curExp = 0;
+
+    public Slider healthSlider;
+    public Slider manaSlider;
+    public Slider stamSlider;
+    public Slider expSlider;
+
+    //public Image damageImage;
+    public float damageScreenFlashSpeed = 5f;
+    public Color damageScreenFlashColor = new Color(1f, 0f, 0f, .1f);
+
+    //Animator anim;
+    //AudioSource playerAudio;
+
+    // Use this for initialization
+    void Start()
+    {
+        //anim = GetComponent<Animator>();
+        //playerAudio = GetComponent<AudioSource>();
+        CharacterMotor = GetComponent<CharacterMotor>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Flash damage splash screen
+        if (damaged)
+        {
+            //damageImage.color = flashColor;
+        }
+        else
+        {
+            //damageImage.color = Color.Lerp(damageImage.color, Color.clear, damageScreenFlashSpeed * Time.deltaTime);
+        }
+        damaged = false;
+
+        //update sliders
+        healthSlider.value = curHealth * 100 / maxHealth;
+        manaSlider.value = curMana * 100 / maxMana;
+        stamSlider.value = curStam * 100 / maxStam;
+        expSlider.value = curExp * 100 / maxExp;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        damaged = true;
+        curHealth -= amount;
+        //healthSlider.value = (curHealth / maxHealth) * 100;
+        //playerAudio.Play();
+        if (curHealth <= 0 && !isDead)
+        {
+            Death();
+        }
+
+    }
+
+    void Death()
+    {
+        isDead = true;
+        //anim.SetTrigger("Die");
+        //playerAudio.clip = deathClip;
+        //playerAudio.Play();
+        CharacterMotor.canControl = false;
+
+    }
+
+    void onGUI()
+    {
+
+    }
+}
