@@ -15,24 +15,30 @@ public class GUIControls : MonoBehaviour
     public int curStam = 100;
     public int maxExp = 100;
     public int curExp = 0;
+    public int level = 1;
+    public int healthRegen = 1;
+    public int manaRegen = 1;
+    public int stamRegen = 1;
+    public int regenCounter = 0;
+    public int regenTick = 15;
 
     public Slider healthSlider;
     public Slider manaSlider;
     public Slider stamSlider;
     public Slider expSlider;
 
-    //public Image damageImage;
+    public Image damageImage;
     public float damageScreenFlashSpeed = 5f;
     public Color damageScreenFlashColor = new Color(1f, 0f, 0f, .1f);
 
-    //Animator anim;
-    //AudioSource playerAudio;
+    Animator anim;
+    AudioSource playerAudio;
 
     // Use this for initialization
     void Start()
     {
-        //anim = GetComponent<Animator>();
-        //playerAudio = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
         CharacterMotor = GetComponent<CharacterMotor>();
     }
 
@@ -50,6 +56,13 @@ public class GUIControls : MonoBehaviour
         }
         damaged = false;
 
+        //level up if necessary
+        if (curExp >= maxExp) {
+            LevelUp();
+        }
+
+        //regen
+        regenerate();
         //update sliders
         healthSlider.value = curHealth * 100 / maxHealth;
         manaSlider.value = curMana * 100 / maxMana;
@@ -61,7 +74,8 @@ public class GUIControls : MonoBehaviour
     {
         damaged = true;
         curHealth -= amount;
-        //healthSlider.value = (curHealth / maxHealth) * 100;
+        healthSlider.value = curHealth * 100 / maxHealth;
+        //playerAudio.clip = damagedClip;
         //playerAudio.Play();
         if (curHealth <= 0 && !isDead)
         {
@@ -78,6 +92,42 @@ public class GUIControls : MonoBehaviour
         //playerAudio.Play();
         CharacterMotor.canControl = false;
 
+    }
+
+    void LevelUp()
+    {
+        curExp = 0;
+        //playerAudio.clip = levelUpClip;
+        //playerAudio.Play();
+        maxExp = (int) (maxExp * 1.12);
+        maxHealth += 10;
+        maxMana += 10;
+        maxStam += 10;
+        level++;
+    }
+
+    void regenerate()
+    {
+        if (regenCounter >= regenTick)
+        {
+            regenCounter = 0;
+            if (curHealth < maxHealth)
+            {
+                curHealth += healthRegen;
+            }
+            if (curMana < maxMana)
+            {
+                curMana += manaRegen;
+            }
+            if (curStam < maxStam)
+            {
+                curStam += stamRegen;
+            }
+        }
+        else
+        {
+            regenCounter += 1;
+        }
     }
 
     void onGUI()
