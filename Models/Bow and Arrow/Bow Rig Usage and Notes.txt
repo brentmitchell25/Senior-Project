@@ -1,0 +1,44 @@
+Bow and Arrow Rig v1.0 by Josh Underwood
+
+NOTES:
+
+This is a simple bow rig that I created for use with archery-related animation.
+
+The rig uses a combination of FK and IK joints that work simultaneously. Multiple sets of 
+IK chains are used in coordination with each other to create a smooth bend in the body
+of the bow while the bowstring is being pulled back, and a set of FK joints is used to
+allow for changing the point at which the hand is gripping the string.
+
+The rig is free to use, and while I'm never going to hunt anybody down, I do request that you
+give appropriate credit if you use it in a shot and post it online.
+
+HOW TO USE THE BOW:
+
+There are 3 controls on the bow that should allow for any motion you would want for
+the vast majority of bow-related animation.
+
+bowMasterCtrl: the large white control in front of the bow is how you control the 
+translation, rotation, and global scale of the bow. The control pivots around the center of 
+the bow's handle, so this control is what you want to constrain to your character's hand.
+
+drawCtrl: This control pulls the bowstring back and causes the body of the bow to bend.
+It only moves in the local X direction.
+
+stringSlideCtrl: This is the dark green control found within the drawCtrl. Use it to 
+manipulate the string without bending the bow. It can move in every direction and rotate
+on the X and Z axes.
+
+HOW TO USE THE ARROW:
+
+arrowMasterCtrl: The red control above the arrow can be used to translate and rotate the arrow 
+as well as scale it. This is what you want to use to control the arrow's flight path and what 
+you want to constrain to.
+
+arrowTwistCtrl: The control inside arrowMasterCtrl features limited rotation pivoted at the tip 
+of the arrow head. The Twist attribute is just what it sounds like. The Bend attributes use 
+deformers to allow the arrow to be warped for realistic, slow motion animation. The Stuck 
+attributes are also bend deformers that pivot at the tip of the arrow (for a cartoony effect when 
+the arrow gets stuck in a target).
+
+Lastly, a helpful tip: DO NOT DUPLICATE THE ARROW WITHIN A SCENE. The bend deformers will not
+work on the duplicated arrow. Either import or reference another arrow if you need more than one.
