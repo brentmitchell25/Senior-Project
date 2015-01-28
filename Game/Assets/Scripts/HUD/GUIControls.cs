@@ -7,6 +7,7 @@ public class GUIControls : MonoBehaviour
     CharacterMotor CharacterMotor;
     bool isDead;
     bool damaged;
+    public bool exhausted;
     public int maxHealth = 100;
     public int curHealth = 100;
     public int maxMana = 100;
@@ -21,6 +22,7 @@ public class GUIControls : MonoBehaviour
     public int stamRegen = 1;
     public int regenCounter = 0;
     public int regenTick = 15;
+    
 
     public Slider healthSlider;
     public Slider manaSlider;
@@ -60,6 +62,15 @@ public class GUIControls : MonoBehaviour
         if (curExp >= maxExp) {
             LevelUp();
         }
+
+        //set exhausted if drop below 10 stam. Clear when above 10 stam. Prevents on-off sprinting
+        if (curStam <= 0)
+        {
+            exhausted = true;
+            curStam = 0;
+        }
+        if (curStam >= 10)
+            exhausted = false;
 
         //regen
         regenerate();

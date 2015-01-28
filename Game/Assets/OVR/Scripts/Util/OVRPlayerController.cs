@@ -86,6 +86,7 @@ public class OVRPlayerController : MonoBehaviour
 	protected CharacterController Controller = null;
 	protected OVRCameraRig CameraController = null;
 	protected Transform DirXform = null;
+    GUIControls GUIcontrols;
 
 	private float MoveScaleMultiplier = 1.0f;
 	private float RotationScaleMultiplier = 1.0f;
@@ -98,6 +99,7 @@ public class OVRPlayerController : MonoBehaviour
 	void Awake()
 	{
 		Controller = gameObject.GetComponent<CharacterController>();
+        GUIcontrols = gameObject.GetComponent<GUIControls>();
 
 		if(Controller == null)
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
@@ -213,8 +215,15 @@ public class OVRPlayerController : MonoBehaviour
 		float moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
 		// Run!
-		if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-			moveInfluence *= 2.0f;
+        if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            if (!GUIcontrols.exhausted)
+            {
+                moveInfluence *= 2.0f;
+                if (GUIcontrols.regenCounter % 5 == 0) //Only reduce stamina for every two updates, to drain slower
+                    GUIcontrols.curStam -= 1;
+            }
+        }
 
 		if (DirXform != null)
 		{
