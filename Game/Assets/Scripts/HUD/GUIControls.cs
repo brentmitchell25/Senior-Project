@@ -7,6 +7,7 @@ public class GUIControls : MonoBehaviour
     CharacterMotor CharacterMotor;
     bool isDead;
     bool damaged;
+    [HideInInspector]
     public bool exhausted;
     public int maxHealth = 100;
     public int curHealth = 100;
@@ -20,7 +21,9 @@ public class GUIControls : MonoBehaviour
     public int healthRegen = 1;
     public int manaRegen = 1;
     public int stamRegen = 1;
+    [HideInInspector]
     public int regenCounter = 0;
+    [HideInInspector]
     public int regenTick = 15;
     
 
@@ -108,8 +111,8 @@ public class GUIControls : MonoBehaviour
     void LevelUp()
     {
         curExp = 0;
-        //playerAudio.clip = levelUpClip;
-        //playerAudio.Play();
+        //playerAudio.clip = TakeDamageClip;
+        playerAudio.Play();
         maxExp = (int) (maxExp * 1.12);
         maxHealth += 10;
         maxMana += 10;
