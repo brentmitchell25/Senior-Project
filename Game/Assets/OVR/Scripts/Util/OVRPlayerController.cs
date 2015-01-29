@@ -220,7 +220,7 @@ public class OVRPlayerController : MonoBehaviour
             if (!GUIcontrols.exhausted)
             {
                 moveInfluence *= 2.0f;
-                if (GUIcontrols.regenCounter % 5 == 0) //Only reduce stamina for every two updates, to drain slower
+                if (GUIcontrols.regenCounter % 3 == 0) //Only reduce stamina for every three updates, to drain slower
                     GUIcontrols.curStam -= 1;
             }
         }
