@@ -39,12 +39,14 @@ public class GUIControls : MonoBehaviour
     Animator anim;
     public AudioClip LevelUpClip;
     public AudioClip TakeDamageClip;
+    public AudioClip DeathClip;
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
         CharacterMotor = GetComponent<CharacterMotor>();
+        AudioListener.volume = 100;
     }
 
     // Update is called once per frame
@@ -101,6 +103,8 @@ public class GUIControls : MonoBehaviour
     {
         isDead = true;
         //anim.SetTrigger("Die");
+        AudioSource.PlayClipAtPoint(DeathClip, Vector3.zero);
+        
         CharacterMotor.canControl = false;
 
     }
@@ -114,34 +118,36 @@ public class GUIControls : MonoBehaviour
         maxMana += 10;
         maxStam += 10;
         level++;
+        curHealth = maxHealth;
+        curMana = maxMana;
+        curStam = maxStam;
     }
 
     void regenerate()
     {
-        if (regenCounter >= regenTick)
+        if (!isDead)
         {
-            regenCounter = 0;
-            if (curHealth < maxHealth)
+            if (regenCounter >= regenTick)
             {
-                curHealth += healthRegen;
+                regenCounter = 0;
+                if (curHealth < maxHealth)
+                {
+                    curHealth += healthRegen;
+                }
+                if (curMana < maxMana)
+                {
+                    curMana += manaRegen;
+                }
+                if (curStam < maxStam)
+                {
+                    curStam += stamRegen;
+                }
             }
-            if (curMana < maxMana)
+            else
             {
-                curMana += manaRegen;
-            }
-            if (curStam < maxStam)
-            {
-                curStam += stamRegen;
+                regenCounter += 1;
             }
         }
-        else
-        {
-            regenCounter += 1;
-        }
-    }
-
-    void onGUI()
-    {
 
     }
 }

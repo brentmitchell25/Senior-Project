@@ -4,11 +4,12 @@ using System.Collections;
 public class SimpleEnemyAttack : MonoBehaviour {
     public float timeBetweenAttacks = .5f;
     public int attackDamage = 10;
+    public AudioClip LevelUpClip;
 
     Animator anim;
     GameObject player;
     GUIControls GUIcontrols;
-    //EnemyHealth enemyHealth;
+    SimpleEnemyHealth enemyHealth;
     bool playerInRange;
     float timer;
 
@@ -16,7 +17,7 @@ public class SimpleEnemyAttack : MonoBehaviour {
 	void Awake () {
         player = GameObject.FindGameObjectWithTag("Player");
         GUIcontrols = player.GetComponent<GUIControls>();
-        //enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponent<SimpleEnemyHealth>();
         anim = GetComponent<Animator>();
 
 	}
@@ -46,7 +47,7 @@ public class SimpleEnemyAttack : MonoBehaviour {
         timer += Time.deltaTime;
 
         //If timer exceeds time between attacks, you should attack player
-        if (timer >= timeBetweenAttacks && playerInRange)
+        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.curHealth > 0)
             Attack();
 
     }
@@ -61,6 +62,7 @@ public class SimpleEnemyAttack : MonoBehaviour {
         {
             //then damage the player
             GUIcontrols.TakeDamage(attackDamage);
+            AudioSource.PlayClipAtPoint(LevelUpClip, Vector3.zero);
         }
 
     }
