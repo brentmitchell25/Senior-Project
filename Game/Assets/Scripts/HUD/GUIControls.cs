@@ -37,16 +37,14 @@ public class GUIControls : MonoBehaviour
     public Color damageScreenFlashColor = new Color(1f, 0f, 0f, .1f);
 
     Animator anim;
-    public AudioClip LevelUpClip;
-    public AudioClip TakeDamageClip;
-    public AudioClip DeathClip;
+    AudioSource playerAudio;
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
         CharacterMotor = GetComponent<CharacterMotor>();
-        AudioListener.volume = 100;
     }
 
     // Update is called once per frame
@@ -90,8 +88,9 @@ public class GUIControls : MonoBehaviour
     {
         damaged = true;
         curHealth -= amount;
-        AudioSource.PlayClipAtPoint(TakeDamageClip, Vector3.zero);
         healthSlider.value = curHealth * 100 / maxHealth;
+        //playerAudio.clip = damagedClip;
+        //playerAudio.Play();
         if (curHealth <= 0 && !isDead)
         {
             Death();
@@ -103,8 +102,8 @@ public class GUIControls : MonoBehaviour
     {
         isDead = true;
         //anim.SetTrigger("Die");
-        AudioSource.PlayClipAtPoint(DeathClip, Vector3.zero);
-        
+        //playerAudio.clip = deathClip;
+        //playerAudio.Play();
         CharacterMotor.canControl = false;
 
     }
@@ -112,42 +111,41 @@ public class GUIControls : MonoBehaviour
     void LevelUp()
     {
         curExp = 0;
-        AudioSource.PlayClipAtPoint(LevelUpClip,Vector3.zero);
+        //playerAudio.clip = TakeDamageClip;
+        playerAudio.Play();
         maxExp = (int) (maxExp * 1.12);
         maxHealth += 10;
         maxMana += 10;
         maxStam += 10;
         level++;
-        curHealth = maxHealth;
-        curMana = maxMana;
-        curStam = maxStam;
     }
 
     void regenerate()
     {
-        if (!isDead)
+        if (regenCounter >= regenTick)
         {
-            if (regenCounter >= regenTick)
+            regenCounter = 0;
+            if (curHealth < maxHealth)
             {
-                regenCounter = 0;
-                if (curHealth < maxHealth)
-                {
-                    curHealth += healthRegen;
-                }
-                if (curMana < maxMana)
-                {
-                    curMana += manaRegen;
-                }
-                if (curStam < maxStam)
-                {
-                    curStam += stamRegen;
-                }
+                curHealth += healthRegen;
             }
-            else
+            if (curMana < maxMana)
             {
-                regenCounter += 1;
+                curMana += manaRegen;
+            }
+            if (curStam < maxStam)
+            {
+                curStam += stamRegen;
             }
         }
+        else
+        {
+            regenCounter += 1;
+        }
+    }
+
+    void onGUI()
+    {
 
     }
 }

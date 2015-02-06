@@ -1,28 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OutlineCharacter : MonoBehaviour
-{
-		private static Shader shaderNoOutline = Shader.Find ("Diffuse");
-		private static Shader shaderOutline = Shader.Find ("Outlined/Diffuse");
+public class OutlineCharacter : MonoBehaviour {
+	private GameObject player;
 
-		private void RenderVisibility ()
-		{
-
+	void Start() {
+		Debug.Log ("Start");
 		}
 
-		void Start ()
-		{
-				Debug.Log ("Start");
-		}
-
-		void Update ()
-		{
-				if (renderer.IsVisibleFrom (GameObject.Find ("RightEyeAnchor").camera)) {
-						renderer.material.shader = shaderOutline;
-				} else {
-						renderer.material.shader = shaderNoOutline;
+	void Update()
+	{
+		if (gameObject.name.Equals("ArcherBowHighlighted")) {
+			Debug.Log (gameObject.ToString ());
+						if (renderer.IsVisibleFrom (GameObject.Find ("RightEyeAnchor").camera)) {
+								Debug.Log ("Visible");
+								gameObject.SetActive (true);
+						} else {
+								Debug.Log ("Not visible");
+								gameObject.SetActive (false);
+						}
 				}
 
-		}
+	}
 }
