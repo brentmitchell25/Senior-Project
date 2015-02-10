@@ -5,7 +5,8 @@ public class OutlineCharacter : MonoBehaviour
 {
 		private static Shader shaderNoOutline = Shader.Find ("Diffuse");
 		private static Shader shaderOutline = Shader.Find ("Outlined/Diffuse");
-	private Camera camera;
+		private Camera camera;
+	public float archerAngle;
 	
 
 		void Start ()
