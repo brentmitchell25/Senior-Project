@@ -10,14 +10,17 @@ public class SimpleEnemyAttack : MonoBehaviour {
     GameObject player;
     GUIControls GUIcontrols;
     SimpleEnemyHealth enemyHealth;
+    SimpleEnemyMovement enemyMovement;
     bool playerInRange;
     float timer;
 
 	// Use this for initialization
 	void Awake () {
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         GUIcontrols = player.GetComponent<GUIControls>();
         enemyHealth = GetComponent<SimpleEnemyHealth>();
+        enemyMovement = GetComponent<SimpleEnemyMovement>();
         anim = GetComponent<Animator>();
 
 	}
@@ -47,7 +50,7 @@ public class SimpleEnemyAttack : MonoBehaviour {
         timer += Time.deltaTime;
 
         //If timer exceeds time between attacks, you should attack player
-        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.curHealth > 0)
+        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.curHealth > 0 && !enemyMovement.AggroReset)
             Attack();
 
     }

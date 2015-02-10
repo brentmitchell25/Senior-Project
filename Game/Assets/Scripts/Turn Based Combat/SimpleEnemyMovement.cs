@@ -9,6 +9,7 @@ public class SimpleEnemyMovement : MonoBehaviour {
     NavMeshAgent nav;
     int AggroRange = 10;
     bool Aggro = false;
+    public bool AggroReset = false;
     Vector3 StartPosition;
     int TravelRange = 30;
 
@@ -29,14 +30,18 @@ public class SimpleEnemyMovement : MonoBehaviour {
             Aggro = true;
         }
 
-        //Check to see how far away enemy is from start position. If too far, move them back to their starting position. 
+        //Check to see how far away enemy is from start position. If too far, move them back to their starting position. AggroReset ensures they go all the way back.
         if (Vector3.Distance(transform.position, StartPosition) > TravelRange)
         {
             Aggro = false;
+            AggroReset = true;
             nav.SetDestination(StartPosition);
         }
+        //If AggroReset is true, make sure to turn it off whenever they reach their StartPosition
+        if (transform.position == StartPosition && AggroReset)
+            AggroReset = false;
 
-        if (Aggro)
+        if (Aggro && !AggroReset)
         {
             // If the enemy and the player have health left...
             if (enemyHealth.curHealth > 0 && GUIcontrols.curHealth > 0)
