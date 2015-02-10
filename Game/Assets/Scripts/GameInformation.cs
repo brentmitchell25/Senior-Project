@@ -76,4 +76,19 @@ public class GameInformation : MonoBehaviour {
 		get;
 		set;
 	}
+
+	public static float ArcherAngle {
+				get;
+				set;
+		}
+
+	public static float MeleeAngle {
+				get;
+				set;
+		}
+
+	public static float MageAngle {
+				get;
+				set;
+		}
 }
