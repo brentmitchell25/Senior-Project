@@ -19,7 +19,7 @@ public class OutlineCharacter : MonoBehaviour
 						}
 				}
 		gameObject.CompareTag ("Archer");
-		GUI.Label(Rect(0,0,Screen.width,Screen.height),"Here is a block of text\nlalalala\nanother line\nI could do this all day!");
+		//GUI.Label(Rect(0,0,Screen.width,Screen.height),"Here is a block of text\nlalalala\nanother line\nI could do this all day!");
 		}
 
 		void Update ()
