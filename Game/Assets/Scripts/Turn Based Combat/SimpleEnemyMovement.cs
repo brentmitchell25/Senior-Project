@@ -38,7 +38,7 @@ public class SimpleEnemyMovement : MonoBehaviour {
             nav.SetDestination(StartPosition);
         }
         //If AggroReset is true, make sure to turn it off whenever they reach their StartPosition
-        if (transform.position == StartPosition && AggroReset)
+        if (Vector3.Distance(transform.position,StartPosition) < 1 && AggroReset)
             AggroReset = false;
 
         if (Aggro && !AggroReset)
