@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour {
         {
             //Reset the timer
             timer = 0f;
-
+            print("Attacked");
             ////TODO: Finish this
 
         }
