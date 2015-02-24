@@ -94,7 +94,6 @@ public class GUIControls : MonoBehaviour
         curHealth -= amount;
         audioSource.clip = TakeDamageClip;
         audioSource.Play();
-        //AudioSource.PlayClipAtPoint(TakeDamageClip, Vector3.zero);
         healthSlider.value = curHealth * 100 / maxHealth;
         if (curHealth <= 0 && !isDead)
         {
@@ -107,8 +106,8 @@ public class GUIControls : MonoBehaviour
     {
         isDead = true;
         //anim.SetTrigger("Die");
-        AudioSource.PlayClipAtPoint(DeathClip, Vector3.zero);
-        
+        audioSource.clip = DeathClip;
+        audioSource.Play();
         CharacterMotor.canControl = false;
 
     }
@@ -116,7 +115,8 @@ public class GUIControls : MonoBehaviour
     void LevelUp()
     {
         curExp = 0;
-        AudioSource.PlayClipAtPoint(LevelUpClip,Vector3.zero);
+        audioSource.clip = LevelUpClip;
+        audioSource.Play();
         maxExp = (int) (maxExp * 1.12);
         maxHealth += 10;
         maxMana += 10;
