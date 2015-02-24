@@ -4,9 +4,10 @@ using System.Collections;
 public class SimpleEnemyAttack : MonoBehaviour {
     public float timeBetweenAttacks = .5f;
     public int attackDamage = 10;
-    public AudioClip LevelUpClip;
+    public AudioClip Snarl;
 
     Animator anim;
+    AudioSource audioSource;
     GameObject player;
     GUIControls GUIcontrols;
     SimpleEnemyHealth enemyHealth;
@@ -17,6 +18,8 @@ public class SimpleEnemyAttack : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.dopplerLevel = 0;
         player = GameObject.FindGameObjectWithTag("Player");
         GUIcontrols = player.GetComponent<GUIControls>();
         enemyHealth = GetComponent<SimpleEnemyHealth>();
@@ -65,7 +68,9 @@ public class SimpleEnemyAttack : MonoBehaviour {
         {
             //then damage the player
             GUIcontrols.TakeDamage(attackDamage);
-            AudioSource.PlayClipAtPoint(LevelUpClip, Vector3.zero);
+            audioSource.clip = Snarl;
+            audioSource.Play();
+            //AudioSource.PlayClipAtPoint(Snarl, Vector3.zero);
         }
 
     }

@@ -37,6 +37,7 @@ public class GUIControls : MonoBehaviour
     public Color damageScreenFlashColor = new Color(1f, 0f, 0f, .1f);
 
     Animator anim;
+    AudioSource audioSource;
     public AudioClip LevelUpClip;
     public AudioClip TakeDamageClip;
     public AudioClip DeathClip;
@@ -45,6 +46,7 @@ public class GUIControls : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         CharacterMotor = GetComponent<CharacterMotor>();
         AudioListener.volume = 100;
     }
@@ -90,7 +92,9 @@ public class GUIControls : MonoBehaviour
     {
         damaged = true;
         curHealth -= amount;
-        AudioSource.PlayClipAtPoint(TakeDamageClip, Vector3.zero);
+        audioSource.clip = TakeDamageClip;
+        audioSource.Play();
+        //AudioSource.PlayClipAtPoint(TakeDamageClip, Vector3.zero);
         healthSlider.value = curHealth * 100 / maxHealth;
         if (curHealth <= 0 && !isDead)
         {

@@ -20,7 +20,6 @@ public class EnemyManager : MonoBehaviour {
 	    //if player has no health left, or if there is already the max number of enemies out, don't spawn any more
         if (GUIcontrols.curHealth <= 0f || curEnemyCount >= maxEnemyCount)
         {
-            print("did not spawn, cur = " + curEnemyCount + ", max = " + maxEnemyCount);
             return;
         }
 
