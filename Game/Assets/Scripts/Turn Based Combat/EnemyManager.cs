@@ -39,13 +39,11 @@ public class EnemyManager : MonoBehaviour {
         do
         {
             spawnPointIndex = Random.Range(0, spawnPoints.Length);
-            print("Attempting to spawn at point " + spawnPointIndex);
         } while (spawnedEnemies[spawnPointIndex]);
 
         curEnemyCount += 1; 
         //Create an instance of enemy prefab at the random spawn point
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         spawnedEnemies[spawnPointIndex] = true;
-        print("spawned enemy at spawn point " + spawnPointIndex);
     }
 }
