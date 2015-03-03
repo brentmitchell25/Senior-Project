@@ -20,6 +20,8 @@ public class SimpleEnemyAttack : MonoBehaviour {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         audioSource.dopplerLevel = 0;
+        audioSource.volume = .05f;
+        Snarl = Resources.Load("Audio/Sound fx/Animals/Other/Gorilla Snarl #2") as AudioClip;
         player = GameObject.FindGameObjectWithTag("Player");
         GUIcontrols = player.GetComponent<GUIControls>();
         enemyHealth = GetComponent<SimpleEnemyHealth>();
