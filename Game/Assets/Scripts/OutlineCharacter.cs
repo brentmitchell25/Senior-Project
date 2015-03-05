@@ -21,7 +21,7 @@ public class OutlineCharacter : MonoBehaviour
 
 		void Update ()
 		{
-			if(Input.GetKeyDown("enter")) {
+		if(Input.GetKeyDown("enter") || Input.GetKeyDown("return")) {
 			Debug.Log("Enter pressed");
 		   Application.LoadLevel("Forest");
 		}
