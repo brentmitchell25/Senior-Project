@@ -21,7 +21,10 @@ public class OutlineCharacter : MonoBehaviour
 
 		void Update ()
 		{
-
+			if(Input.GetKeyDown("enter")) {
+			Debug.Log("Enter pressed");
+		   Application.LoadLevel("Forest");
+		}
 				Vector3 cam = Vector3.Normalize (camera.transform.forward);
 				Vector3 archer = Vector3.Normalize (this.gameObject.transform.position);
 				// Assign angles
