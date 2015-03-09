@@ -24,6 +24,7 @@ public class SimpleEnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         //Check to see if player pulls aggro
         if (Vector3.Distance(transform.position, player.transform.position) < AggroRange)
         {
@@ -37,10 +38,12 @@ public class SimpleEnemyMovement : MonoBehaviour {
             AggroReset = true;
             nav.SetDestination(StartPosition);
         }
-        //If AggroReset is true, make sure to turn it off whenever they reach their StartPosition
-        if (Vector3.Distance(transform.position,StartPosition) < 1 && AggroReset)
+        //If AggroReset is true, make sure to turn it off whenever they reach their StartPosition (or close to it, anyway)
+        if (Vector3.Distance(transform.position, StartPosition) < 1 && AggroReset)
+        {
             AggroReset = false;
 
+        }
         if (Aggro && !AggroReset)
         {
             // If the enemy and the player have health left...
