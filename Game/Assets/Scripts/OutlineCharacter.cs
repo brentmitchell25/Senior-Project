@@ -13,7 +13,7 @@ public class OutlineCharacter : MonoBehaviour
 				Debug.Log ("Start");
 				foreach (Camera c in Camera.allCameras) {
 						if (c.gameObject.name.Equals ("RightEyeAnchor")) {
-								camera = c.gameObject.camera;
+								camera = c.gameObject.GetComponent<Camera>();
 								break;
 						}
 				}
@@ -37,12 +37,12 @@ public class OutlineCharacter : MonoBehaviour
 						GameInformation.MageAngle = angle;
 
 				// Select character with highest dot product to camera normal
-				if (renderer.IsVisibleFrom (camera) && angle == Mathf.Max (new float[] {
+				if (GetComponent<Renderer>().IsVisibleFrom (camera) && angle == Mathf.Max (new float[] {
 						GameInformation.ArcherAngle,
 						GameInformation.MeleeAngle,
 						GameInformation.MageAngle
 				})) {
-						renderer.material.shader = shaderOutline;
+						GetComponent<Renderer>().material.shader = shaderOutline;
 
 						if (gameObject.CompareTag ("Archer"))
 								GameInformation.PlayerClass = new BaseRangedClass ();
@@ -51,7 +51,7 @@ public class OutlineCharacter : MonoBehaviour
 						else
 								GameInformation.PlayerClass = new BaseMageClass ();
 				} else {
-						renderer.material.shader = shaderNoOutline;
+						GetComponent<Renderer>().material.shader = shaderNoOutline;
 				}
 
 		}
