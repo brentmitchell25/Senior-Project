@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class OutlineCharacter : MonoBehaviour
 {
-		private static Shader shaderNoOutline = Shader.Find ("Diffuse");
-		private static Shader shaderOutline = Shader.Find ("Outlined/Diffuse");
+		private static Shader shaderNoOutline;
+		private static Shader shaderOutline;
 		private Camera camera;
 		public float angle;
 
 		void Start ()
 		{
-				Debug.Log ("Start");
+		shaderNoOutline = Shader.Find ("Diffuse");
+		shaderOutline = Shader.Find ("Outlined/Diffuse");
 				foreach (Camera c in Camera.allCameras) {
 						if (c.gameObject.name.Equals ("RightEyeAnchor")) {
 								camera = c.gameObject.GetComponent<Camera>();

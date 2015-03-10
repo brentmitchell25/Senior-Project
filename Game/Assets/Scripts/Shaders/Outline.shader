@@ -2,7 +2,7 @@
 	Properties {
 		_Color ("Main Color", Color) = (.5,.5,.5,1)
 		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
-		_Outline ("Outline width", Range (.002, 0.03)) = .005
+		_Outline ("Outline width", Range (.4, 0.5)) = .9
 		_MainTex ("Base (RGB)", 2D) = "white" { }
 	}
  
@@ -99,10 +99,6 @@ ENDCG
 			ColorMask RGB
 			Blend SrcAlpha OneMinusSrcAlpha
  
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma exclude_renderers gles xbox360 ps3
-			ENDCG
 			SetTexture [_MainTex] { combine primary }
 		}
 	}
