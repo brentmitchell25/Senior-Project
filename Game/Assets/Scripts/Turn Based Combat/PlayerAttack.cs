@@ -8,10 +8,17 @@ public class PlayerAttack : MonoBehaviour {
 
     float timer;
     int shootableMask;
+    Ray shootRay;
+    RaycastHit shootHit;
+    LineRenderer gunLine;
+    AudioSource gunAudio;
+    float effectsDisplayTime = .2f;
 
 	// Use this for initialization
 	void Awake () {
         shootableMask = LayerMask.GetMask("Shootable");
+        gunLine = GetComponent<LineRenderer>();
+        gunAudio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -24,14 +31,38 @@ public class PlayerAttack : MonoBehaviour {
         {
             Attack();
         }
-    }
-        void Attack()
-        {
-            //Reset the timer
-            timer = 0f;
-            print("Attacked");
-            ////TODO: Finish this
 
+        if (timer >= effectsDisplayTime * timeBetweenAttacks)
+        {
+            DisableEffects();
         }
+    }
+
+    public void DisableEffects()
+    {
+        gunLine.enabled = false;
+    }
+
+    void Attack()
+    {
+        //Reset the timer
+        timer = 0f;
+        gunLine.enabled = true;
+        gunLine.SetPosition(0, transform.position);
+        shootRay.direction = transform.forward;
+        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        {
+            print("Hit something");
+            SimpleEnemyHealth enemyHealth = shootHit.collider.GetComponent<SimpleEnemyHealth>();
+            if (enemyHealth != null)
+                enemyHealth.TakeDamage(attackDamage);
+            gunLine.SetPosition(1, shootHit.point);
+        }
+        else
+        {
+            print("Missed");
+            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+        }
+    }
 
 }
