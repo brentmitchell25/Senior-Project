@@ -49,6 +49,7 @@ public class PlayerAttack : MonoBehaviour {
         timer = 0f;
         gunLine.enabled = true;
         gunLine.SetPosition(0, transform.position);
+        shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {

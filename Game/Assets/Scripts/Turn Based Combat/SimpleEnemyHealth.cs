@@ -44,6 +44,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
 
     void Death()
     {
+        print("Killed it");
         isDead = true;
         capsuleCollider.isTrigger = true; //allows shots to pass through it
         anim.SetTrigger("Dead");
@@ -59,5 +60,10 @@ public class SimpleEnemyHealth : MonoBehaviour {
         GetComponent<Rigidbody>().isKinematic = true;//make it kinematic since we're moving it
         isSinking = true;//start sinking
         Destroy(gameObject, 2f);//destroy it after 2 seconds
+    }
+
+    public bool getIsDead()
+    {
+        return isDead;
     }
 }

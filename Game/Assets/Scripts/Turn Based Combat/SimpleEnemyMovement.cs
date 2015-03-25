@@ -20,11 +20,15 @@ public class SimpleEnemyMovement : MonoBehaviour {
         enemyHealth = GetComponent<SimpleEnemyHealth>();
         nav = GetComponent<NavMeshAgent>();
         StartPosition = transform.position;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (enemyHealth.getIsDead())
+        {
+            return;
+        }
         //Check to see if player pulls aggro
         if (Vector3.Distance(transform.position, player.transform.position) < AggroRange)
         {
