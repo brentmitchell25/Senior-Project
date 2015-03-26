@@ -44,7 +44,6 @@ public class SimpleEnemyHealth : MonoBehaviour {
 
     void Death()
     {
-        print("Killed it");
         isDead = true;
         sphereCollider.isTrigger = true; //allows shots to pass through it
         anim.SetTrigger("Dead");

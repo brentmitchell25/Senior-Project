@@ -53,7 +53,6 @@ public class PlayerAttack : MonoBehaviour {
         shootRay.direction = transform.forward;
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
-            print("Hit something");
             SimpleEnemyHealth enemyHealth = shootHit.collider.GetComponent<SimpleEnemyHealth>();
             if (enemyHealth != null)
                 enemyHealth.TakeDamage(attackDamage);
@@ -61,7 +60,6 @@ public class PlayerAttack : MonoBehaviour {
         }
         else
         {
-            print("Missed");
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
     }
