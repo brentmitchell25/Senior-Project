@@ -10,7 +10,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
 
     Animator anim;
     AudioSource enemyAudio;
-    CapsuleCollider capsuleCollider;
+    SphereCollider sphereCollider;
     GUIControls GUIcontrols;
     bool isDead;
     bool isSinking;
@@ -19,7 +19,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
 	void Awake () {
         anim = GetComponent<Animator>();
         enemyAudio = GetComponent<AudioSource>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         GUIcontrols = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GUIControls>();
     }
 	
@@ -46,7 +46,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
     {
         print("Killed it");
         isDead = true;
-        capsuleCollider.isTrigger = true; //allows shots to pass through it
+        sphereCollider.isTrigger = true; //allows shots to pass through it
         anim.SetTrigger("Dead");
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
