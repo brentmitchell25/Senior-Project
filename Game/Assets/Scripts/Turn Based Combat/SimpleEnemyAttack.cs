@@ -55,6 +55,11 @@ public class SimpleEnemyAttack : MonoBehaviour {
         //Add time since Update was last called to timer
         timer += Time.deltaTime;
 
+		if (timer >= timeBetweenAttacks) {
+			Debug.Log(playerInRange);
+			Debug.Log(enemyHealth.curHealth > 0);
+			Debug.Log(!enemyMovement.AggroReset);
+				}
         //If timer exceeds time between attacks, you should attack player
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.curHealth > 0 && !enemyMovement.AggroReset)
             Attack();
