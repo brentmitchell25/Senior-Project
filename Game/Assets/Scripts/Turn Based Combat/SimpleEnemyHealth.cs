@@ -46,7 +46,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
     {
         isDead = true;
         sphereCollider.isTrigger = true; //allows shots to pass through it
-        anim.SetTrigger("Dead");
+        //anim.SetTrigger("Dead");
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
         GUIcontrols.curExp += exp;

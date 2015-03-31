@@ -8,7 +8,7 @@ public class SimpleEnemyMovement : MonoBehaviour {
     SimpleEnemyHealth enemyHealth;
     NavMeshAgent nav;
     int AggroRange = 10;
-    bool Aggro = false;
+    public bool Aggro = false;
     public bool AggroReset = false;
     Vector3 StartPosition;
     int TravelRange = 30;

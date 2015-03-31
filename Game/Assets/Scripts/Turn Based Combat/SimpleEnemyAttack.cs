@@ -12,6 +12,7 @@ public class SimpleEnemyAttack : MonoBehaviour {
     GUIControls GUIcontrols;
     SimpleEnemyHealth enemyHealth;
     SimpleEnemyMovement enemyMovement;
+    int AttackCounter = 0;
     bool playerInRange;
     float timer;
 
@@ -69,6 +70,8 @@ public class SimpleEnemyAttack : MonoBehaviour {
         if (GUIcontrols.curHealth > 0)
         {
             //then damage the player
+            AttackCounter += 1;
+            print("Attacked, " + AttackCounter);
             GUIcontrols.TakeDamage(attackDamage);
             audioSource.clip = Snarl;
             audioSource.Play();
