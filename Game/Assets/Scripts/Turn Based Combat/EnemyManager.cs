@@ -30,6 +30,7 @@ public class EnemyManager : MonoBehaviour {
 	    //if player has no health left, or if there is already the max number of enemies out, don't spawn any more
         if (GUIcontrols.curHealth <= 0f || curEnemyCount >= maxEnemyCount)
         {
+            print("did not spawn");
             return;
         }
 
@@ -39,6 +40,7 @@ public class EnemyManager : MonoBehaviour {
         do
         {
             spawnPointIndex = Random.Range(0, spawnPoints.Length);
+            print("spawned at spawnpoint " + spawnPointIndex);
         } while (spawnedEnemies[spawnPointIndex]);
 
         curEnemyCount += 1; 

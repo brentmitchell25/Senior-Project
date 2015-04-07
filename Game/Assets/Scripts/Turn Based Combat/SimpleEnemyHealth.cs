@@ -12,6 +12,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
     AudioSource enemyAudio;
     SphereCollider sphereCollider;
     GUIControls GUIcontrols;
+    QuestTracker questTracker;
     bool isDead;
     bool isSinking;
 
@@ -21,6 +22,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
         enemyAudio = GetComponent<AudioSource>();
         sphereCollider = GetComponent<SphereCollider>();
         GUIcontrols = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GUIControls>();
+        questTracker = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<QuestTracker>();
     }
 	
 	// Update is called once per frame
@@ -58,6 +60,7 @@ public class SimpleEnemyHealth : MonoBehaviour {
         GetComponent<NavMeshAgent>().enabled = false;//take it off the navmesh
         GetComponent<Rigidbody>().isKinematic = true;//make it kinematic since we're moving it
         isSinking = true;//start sinking
+        questTracker.creatureKilled("gorilla");
         Destroy(gameObject, 2f);//destroy it after 2 seconds
     }
 
