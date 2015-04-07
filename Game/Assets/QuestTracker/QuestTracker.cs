@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class QuestTracker : MonoBehaviour {
 	private CanvasGroup questTracker;
 	private Toggle quest1;
+    private Text questTrackerText;
 	private Toggle quest2;
 	private Toggle quest3;
     GUIControls GUIcontrols;
@@ -16,6 +17,7 @@ public class QuestTracker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		questTracker = GameObject.Find ("QuestContainer").GetComponent<CanvasGroup>() as CanvasGroup;
+        questTrackerText = questTracker.GetComponentInChildren<Text>();
 		quest1 = (Toggle)GameObject.Find ("Quest 1").GetComponent<Toggle>() as Toggle;
 		quest2 = (Toggle)GameObject.Find ("Quest 2").GetComponent<Toggle>() as Toggle;
 		quest3 = (Toggle)GameObject.Find ("Quest 3").GetComponent<Toggle>() as Toggle;
@@ -59,7 +61,10 @@ public class QuestTracker : MonoBehaviour {
     public void enteredArea(string areaName)
     {
         if (areaName == "hideout")
+        {
             foundHideout = true;
+            updateQuests();
+        }
     }
 
     public void updateQuests()
@@ -67,16 +72,23 @@ public class QuestTracker : MonoBehaviour {
         if (gorillaKillCount >= 3)
         {
             quest1.isOn = true;
+            GUIcontrols.curExp += 50;
+            string quest1Text = questTrackerText.text.Substring(0, 10);
+            questTrackerText.color = UnityEngine.Color.green;
         }
 
         if (foundHideout == true)
         {
             quest2.isOn = true;
+            GUIcontrols.curExp += 50;
+            questTrackerText.color = UnityEngine.Color.green;
         }
 
         if (GUIcontrols.level >= 3)
         {
             quest3.isOn = true;
+            GUIcontrols.curExp += 50;
+            questTrackerText.color = UnityEngine.Color.green;
         }
 
         checkGameComplete();
