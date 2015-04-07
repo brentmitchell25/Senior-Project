@@ -64,7 +64,7 @@ public class QuestTracker : MonoBehaviour {
 
     public void updateQuests()
     {
-        if (gorillaKillCount >= 5)
+        if (gorillaKillCount >= 3)
         {
             quest1.isOn = true;
         }

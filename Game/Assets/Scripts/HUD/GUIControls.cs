@@ -41,6 +41,7 @@ public class GUIControls : MonoBehaviour
     public AudioClip LevelUpClip;
     public AudioClip TakeDamageClip;
     public AudioClip DeathClip;
+    QuestTracker questTracker;
 
     // Use this for initialization
     void Start()
@@ -49,6 +50,7 @@ public class GUIControls : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         CharacterMotor = GetComponent<CharacterMotor>();
         AudioListener.volume = 100;
+        questTracker = GetComponentInChildren<QuestTracker>();
     }
 
     // Update is called once per frame
@@ -125,6 +127,7 @@ public class GUIControls : MonoBehaviour
         curHealth = maxHealth;
         curMana = maxMana;
         curStam = maxStam;
+        questTracker.updateQuests();
     }
 
     void regenerate()
