@@ -3,7 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class QuestTracker : MonoBehaviour {
-	private CanvasGroup questTracker;
+	private CanvasGroup questContainer;
+	private Text quest1Text;
+	private Text quest2Text;
+	private Text quest3Text;
 	private Toggle quest1;
 	private Toggle quest2;
 	private Toggle quest3;
@@ -15,7 +18,10 @@ public class QuestTracker : MonoBehaviour {
     private bool foundHideout = false;
 	// Use this for initialization
 	void Start () {
-		questTracker = GameObject.Find ("QuestContainer").GetComponent<CanvasGroup>() as CanvasGroup;
+		questContainer = GameObject.Find ("QuestContainer").GetComponent<CanvasGroup>() as CanvasGroup;
+		quest1Text = (Text)GameObject.Find ("Quest 1 Text").GetComponent<Text> () as Text;
+		quest2Text = (Text)GameObject.Find ("Quest 2 Text").GetComponent<Text> () as Text;
+		quest3Text = (Text)GameObject.Find ("Quest 3 Text").GetComponent<Text> () as Text;
 		quest1 = (Toggle)GameObject.Find ("Quest 1").GetComponent<Toggle>() as Toggle;
 		quest2 = (Toggle)GameObject.Find ("Quest 2").GetComponent<Toggle>() as Toggle;
 		quest3 = (Toggle)GameObject.Find ("Quest 3").GetComponent<Toggle>() as Toggle;
@@ -38,12 +44,12 @@ public class QuestTracker : MonoBehaviour {
 	}
 
 	void setEnabled() {
-		questTracker.alpha = 1;
+		questContainer.alpha = 1;
 
 		}
 
 	void setDisabled() {
-		questTracker.alpha = 0;
+		questContainer.alpha = 0;
 	}
 
     public void creatureKilled(string creatureName)
@@ -67,16 +73,19 @@ public class QuestTracker : MonoBehaviour {
         if (gorillaKillCount >= 3)
         {
             quest1.isOn = true;
+			quest1Text.color = Color.green;
         }
 
         if (foundHideout == true)
         {
             quest2.isOn = true;
+			quest2Text.color = Color.green;
         }
 
         if (GUIcontrols.level >= 3)
         {
             quest3.isOn = true;
+			quest3Text.color = Color.green;
         }
 
         checkGameComplete();
