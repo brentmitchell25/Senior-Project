@@ -8,6 +8,7 @@ public class QuestTracker : MonoBehaviour {
 	private Text quest2Text;
 	private Text quest3Text;
 	private Toggle quest1;
+    private Text questTrackerText;
 	private Toggle quest2;
 	private Toggle quest3;
     GUIControls GUIcontrols;
@@ -65,7 +66,10 @@ public class QuestTracker : MonoBehaviour {
     public void enteredArea(string areaName)
     {
         if (areaName == "hideout")
+        {
             foundHideout = true;
+            updateQuests();
+        }
     }
 
     public void updateQuests()
@@ -73,6 +77,8 @@ public class QuestTracker : MonoBehaviour {
         if (gorillaKillCount >= 3)
         {
             quest1.isOn = true;
+	
+ quest1.isOn = true;
 			quest1Text.color = Color.green;
         }
 
@@ -80,12 +86,14 @@ public class QuestTracker : MonoBehaviour {
         {
             quest2.isOn = true;
 			quest2Text.color = Color.green;
+           
         }
 
         if (GUIcontrols.level >= 3)
         {
             quest3.isOn = true;
 			quest3Text.color = Color.green;
+           
         }
 
         checkGameComplete();
