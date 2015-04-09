@@ -39,7 +39,7 @@ public class EnemyManager : MonoBehaviour {
         do
         {
             spawnPointIndex = Random.Range(0, spawnPoints.Length);
-            print("spawned at spawnpoint " + spawnPointIndex);
+            //print("spawned at spawnpoint " + spawnPointIndex);
         } while (spawnedEnemies[spawnPointIndex]);
 
         curEnemyCount += 1; 

@@ -9,7 +9,7 @@ public class setHideOutFlag : MonoBehaviour {
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         questTracker = GameObject.Find("QuestContainer").GetComponent<CanvasGroup>() as CanvasGroup;
-        QT = GameObject.Find("QuestTracker").GetComponent<QuestTracker>();
+        QT = questTracker.GetComponentInChildren<QuestTracker>();
 	}
 	
 	// Update is called once per frame
