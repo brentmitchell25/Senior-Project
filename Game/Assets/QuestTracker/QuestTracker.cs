@@ -77,23 +77,22 @@ public class QuestTracker : MonoBehaviour {
         if (gorillaKillCount >= 3)
         {
             quest1.isOn = true;
-	
- quest1.isOn = true;
-			quest1Text.color = Color.green;
+            quest1Text.color = Color.green;
+            GUIcontrols.curExp += 50;
         }
 
         if (foundHideout == true)
         {
             quest2.isOn = true;
-			quest2Text.color = Color.green;
-           
+            quest2Text.color = Color.green;
+            GUIcontrols.curExp += 50;           
         }
 
         if (GUIcontrols.level >= 3)
         {
             quest3.isOn = true;
-			quest3Text.color = Color.green;
-           
+            quest3Text.color = Color.green;
+            GUIcontrols.curExp += 50;           
         }
 
         checkGameComplete();
