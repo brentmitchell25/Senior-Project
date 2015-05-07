@@ -18,29 +18,15 @@ Platform assembly: C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project
 Loading C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project\Game\Builds\Build_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project\Game\Builds\Build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project\Game\Builds\Build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.034 seconds
+- Completed reload, in  0.042 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1920x1080 144Hz; virtual: 3840x1080 at 0,0
 <RI> Initialized touch support.
 Platform assembly: C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project\Game\Builds\Build_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project\Game\Builds\Build_Data\Managed\System.dll (this message is harmless)
+Shader 'Nature/Terrain/Standard': fallback shader 'Nature/Terrain/Diffuse' not found
 Platform assembly: C:\Users\bmoos_000.BrentMitchell.000\Documents\Senior-Project\Game\Builds\Build_Data\Managed\Boo.Lang.dll (this message is harmless)
-NullReferenceException: Object reference not set to an instance of an object
-  at SimpleEnemyHealth.StartSinking () [0x00000] in <filename unknown>:0 
-  at SimpleEnemyHealth.Death () [0x00000] in <filename unknown>:0 
-  at SimpleEnemyHealth.TakeDamage (Int32 amount) [0x00000] in <filename unknown>:0 
-  at PlayerAttack.Attack () [0x00000] in <filename unknown>:0 
-  at PlayerAttack.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at GUIControls.LevelUp () [0x00000] in <filename unknown>:0 
-  at GUIControls.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
 Enter pressed
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
@@ -54,36 +40,20 @@ Enter pressed
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.587943 ms
+UnloadTime: 4.000927 ms
 
-Unloading 141 unused Assets to reduce memory usage. Loaded Objects now: 1044.
-Total: 2.153765 ms (FindLiveObjects: 0.110139 ms CreateObjectMapping: 0.018438 ms MarkObjects: 0.345714 ms  DeleteObjects: 1.672349 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 52.380817 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1037.
-Total: 0.420723 ms (FindLiveObjects: 0.032755 ms CreateObjectMapping: 0.022000 ms MarkObjects: 0.213993 ms  DeleteObjects: 0.146876 ms)
+Unloading 140 unused Assets to reduce memory usage. Loaded Objects now: 1132.
+Total: 1.740165 ms (FindLiveObjects: 0.061111 ms CreateObjectMapping: 0.053358 ms MarkObjects: 0.279295 ms  DeleteObjects: 1.343257 ms)
 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 66.078026 ms
+UnloadTime: 55.576687 ms
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1037.
-Total: 0.417720 ms (FindLiveObjects: 0.036806 ms CreateObjectMapping: 0.022000 ms MarkObjects: 0.240253 ms  DeleteObjects: 0.115028 ms)
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1125.
+Total: 0.479390 ms (FindLiveObjects: 0.042603 ms CreateObjectMapping: 0.021511 ms MarkObjects: 0.258063 ms  DeleteObjects: 0.153511 ms)
 
-gorillaKillCount = 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 52.571903 ms
 
-gorillaKillCount = 2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-gorillaKillCount = 3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-entered hideout
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1125.
+Total: 0.425542 ms (FindLiveObjects: 0.034012 ms CreateObjectMapping: 0.023955 ms MarkObjects: 0.243955 ms  DeleteObjects: 0.119917 ms)
 
