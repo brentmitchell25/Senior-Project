@@ -5,26 +5,23 @@ public class SetWeapon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (GameInformation.PlayerClass != null) {
+		Debug.Log (GameInformation.PlayerClass);
+		GameObject.Find ("Sword").GetComponent<Renderer> ().enabled = false;;
 
-						if (GameInformation.PlayerClass.ToString ().Equals ("BaseWarriorClass")) {
-								GameObject.Find ("Sword").SetActive (true);
-								GameObject.Find ("Bow").SetActive (false);
-						} else if (GameInformation.PlayerClass.ToString ().Equals ("BaseRangedClass")) {
-								GameObject.Find ("Bow").SetActive (true);
-								GameObject.Find ("Sword").SetActive (false);
-						
-						} else if (GameInformation.PlayerClass.ToString ().Equals ("BaseMageClass")) {
-								GameObject.Find ("Bow").SetActive (false);
-								GameObject.Find ("Sword").SetActive (false);
-						} else {
-								GameObject.Find ("Bow").SetActive (false);
-								GameObject.Find ("Sword").SetActive (false);
-						}
-				} else {
-						GameObject.Find ("Bow").SetActive (false);
-						GameObject.Find ("Sword").SetActive (false);
-				}
+		if(GameInformation.PlayerClass.ToString().Equals("BaseWarriorClass")) {
+			GameObject.Find ("Sword").GetComponent<Renderer>().enabled = true;
+
+		}
+
+		if(GameInformation.PlayerClass.ToString().Equals("BaseRangedClass")) {
+			GameObject.Find ("Sword").GetComponent<Renderer>().enabled = false;
+			// Stub
+		}
+
+		if(GameInformation.PlayerClass.ToString().Equals("BaseRangedClass")) {
+			GameObject.Find ("Sword").GetComponent<Renderer>().enabled = false;
+			// Stub
+		}
 	}
 	
 	// Update is called once per frame
